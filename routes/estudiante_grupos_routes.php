@@ -8,7 +8,7 @@ Route::group(['prefix' => 'estudiantes_grupos'], function () {
     Route::get('/create', [EstudianteGrupoController::class, 'create'])->name('estudiantes_grupos.create');
     Route::post('/create', [EstudianteGrupoController::class, 'store'])->name('estudiantes_grupos.store');
     Route::get('/edit/{id}', [EstudianteGrupoController::class, 'edit'])->name('estudiantes_grupos.edit');
-    Route::post('/edit/{id}', [EstudianteGrupoController::class, 'update'])->name('estudiantes_grupos.update'); // Corregido
+    Route::post('/edi/{id}', [EstudianteGrupoController::class, 'update'])->name('estudiantes_grupos.update'); // Corregido
     Route::get('/delete/{id}', [EstudianteGrupoController::class, 'delete'])->name('estudiantes_grupos.delete');
     Route::post('/delete/{id}', [EstudianteGrupoController::class, 'destroy'])->name('estudiantes_grupos.destroy');
 });
