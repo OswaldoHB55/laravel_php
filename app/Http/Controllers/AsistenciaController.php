@@ -59,7 +59,7 @@ class AsistenciaController extends Controller
 
     public function edit($id)
     {
-        $asistencia = Asistencia::find($id);
+        $asistencia = Asistencia::with('estudiante', 'grupo')->find($id);
 
         if (!$asistencia) {
             return abort(404);
