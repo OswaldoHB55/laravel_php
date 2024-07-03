@@ -66,17 +66,15 @@ class EstudianteGrupoController extends Controller
      */
     public function edit($id)
     {
-         $estudianteGrupo = EstudianteGrupo::find($id);
-
-         if (!$estudianteGrupo) {
+        $estudianteGrupo = EstudianteGrupo::find($id);
+        if(!$estudianteGrupo){
             return abort(404);
-         }
-         $estudiantes = Estudiante::all();
-         $grupos = Grup0::all();
-
-         return view('estudiantes_grupos.edit', compact('estudianteGrupo', 'estudiantes', 'grupos'));
-        
+        }
+        $estudiantes = Estudiante::all();
+        $grupos = Grup0::all();
+        return view('estudiantes_grupos.edit', compact('estudianteGrupo', 'estudiantes', 'grupos'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -84,18 +82,16 @@ class EstudianteGrupoController extends Controller
     public function update(Request $request, $id)
     {
         $estudianteGrupo = EstudianteGrupo::find($id);
-
-        if ($estudianteGrupo){
+        if(!$estudianteGrupo){
             return abort(404);
         }
-        
         $estudianteGrupo->estudiante_id = $request->estudiante_id;
         $estudianteGrupo->grupo_id = $request->grupo_id;
 
         $estudianteGrupo->save();
-
-        return redirect()->route('estudiantes_grupos.index')->with('success', 'Estudiantes grupo actualizado correctamente.');
+        return redirect()->route('estudiantes_grupos.index')->with('success', 'estudiante Grupo actualizado correctamente.');
     }
+    
 
     public function delete($id)
     {
